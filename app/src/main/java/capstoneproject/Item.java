@@ -10,4 +10,6 @@ public class Item {
         this.quantity = quantity;
         this.price = price;
     }
+
+    // Apply Encapsulation and apply builder pattern
 }

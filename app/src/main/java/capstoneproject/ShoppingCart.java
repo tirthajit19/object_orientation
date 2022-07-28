@@ -9,6 +9,38 @@ public class ShoppingCart {
     public void addItem(String name, int quantity, double price){
             items.add(new Item(name, quantity, price));
     }
+
+    public void addItem(Item item){
+            items.add(item);
+    }
+
+    public void updateItem(Item item, int quanity){
+         // Find item
+         // Update quantity
+            items.add(item);
+    }
+
+    public void removeItem(Item item) {
+        items.remove(item);
+    }
+
+    public void removeItemByQuantity(Item item, int quantity) {
+        Optional<Item> itemOptional = items
+        .stream
+        .filter(itm -> itm.getName().equals(item.getName))
+        .findFirst(); // -> Optional 
+        
+        if(itemOptional.isPresent()) {
+            itemOptional.get().setQuanity(quantity);
+        } else {
+            // log 
+        }
+
+        
+
+        addItem(item);
+    }
+
     public double getTotal(){
         double total_price = 0.0;
         for (Item item : items) {
